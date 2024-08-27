@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@mog/pwa",
+  "name": "@mog/pwa-test-1",
   "version": "0.0.2",
   "repository": "https://github.com/Escape613/loro-testnet-example-pwa",
   "scripts": {
