@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "@cosmosspacesapp/pwa-test-14",
-  "version": "0.1.0",
-  "repository": "https://github.com/Escape613/loro-testnet-example-pwa.git",
+  "name": "@CSpwa/pwa-cs-test-1",
+  "version": "0.0.1",
+  "repository": "https://github.com/Escape613/loro-testnet-example-pwa",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
