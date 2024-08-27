@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@CosmosSpaces/pwa-cs-test-1",
+  "name": "@cosmosspacesapp/pwa-cs-test-1",
   "version": "0.0.1",
   "repository": "https://github.com/Escape613/loro-testnet-example-pwa",
   "scripts": {
