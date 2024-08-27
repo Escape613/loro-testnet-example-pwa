@@ -26,8 +26,8 @@ services:
     rpcEndpoint: '${CERC_REGISTRY_REST_ENDPOINT:-https://laconicd.laconic.com}'
     gqlEndpoint: '${CERC_REGISTRY_GQL_ENDPOINT:-https://laconicd.laconic.com/api}'
     chainId: ${CERC_REGISTRY_CHAIN_ID:-laconic_9000-1}
-    gas: 9550000
-    fees: 15000000alnt
+    gas: 150000
+    fees: 150000alnt
 EOF
 
 #if [ -z "$CERC_REGISTRY_BOND_ID" ]; then
@@ -77,6 +77,12 @@ if [ "true" == "$CERC_IS_LATEST_RELEASE" ]; then
   laconic -c $CONFIG_FILE registry name set --user-key "${CERC_REGISTRY_USER_KEY}" --bond-id ${CERC_REGISTRY_BOND_ID} "$CERC_REGISTRY_APP_CRN" "$AR_RECORD_ID"
 fi
 
+#PAYMENT_TX=$(laconic -c $CONFIG_FILE registry tokens send \
+#  --address $CERC_REGISTRY_DEPLOYMENT_REQUEST_PAYMENT_TO \
+#  --user-key "${CERC_REGISTRY_DEPLOYMENT_REQUEST_USER_KEY}" \
+#  --bond-id "${CERC_REGISTRY_DEPLOYMENT_REQUEST_BOND_ID}" \
+#  --type alnt \
+#  --quantity ${CERC_REGISTRY_DEPLOYMENT_REQUEST_PAYMENT_AMOUNT:-10000} | jq '.tx.hash')
 
 APP_RECORD=$(laconic -c $CONFIG_FILE registry name resolve "$CERC_REGISTRY_APP_CRN" | jq '.[0]')
 if [ -z "$APP_RECORD" ] || [ "null" == "$APP_RECORD" ]; then
@@ -92,6 +98,8 @@ record:
   application: "$CERC_REGISTRY_APP_CRN@$rcd_app_version"
   dns: "$CERC_REGISTRY_DEPLOYMENT_SHORT_HOSTNAME"
   deployment: "$CERC_REGISTRY_DEPLOYMENT_CRN"
+  to: $CERC_REGISTRY_DEPLOYMENT_REQUEST_PAYMENT_TO
+  payment: $PAYMENT_TX
   config:
     env:
       CERC_WEBAPP_DEBUG: "$rcd_app_version"
