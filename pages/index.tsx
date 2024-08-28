@@ -5,21 +5,21 @@ export default function Home() {
     <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>
-          HELLO FROM <a href="https://www.laconic.com/">LACONIC!</a>
+          Welcome to Planet <a href="https://en.wikipedia.org/wiki/Earth">Earth!</a>
         </h1>
 
         <div className={styles.grid}>
 
         <p className={styles.card}>
-          Laconic Address has value: {process.env.CERC_TEST_WEBAPP_CONFIG1}
+          The Earth is Flat or Round?: {process.env.CERC_TEST_WEBAPP_CONFIG1}
         </p>
 
         <p className={styles.card}>
-          Public Key has value: {process.env.CERC_TEST_WEBAPP_CONFIG2}
+          Would you travel to Mars?: {process.env.CERC_TEST_WEBAPP_CONFIG2}
         </p>
 
         <p className={styles.card}>
-          WEBAPP_DEBUG has value: {process.env.CERC_WEBAPP_DEBUG}
+          What colour is your spaceship?: {process.env.CERC_WEBAPP_DEBUG}
         </p>
 
         </div>
